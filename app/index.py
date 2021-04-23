@@ -1,15 +1,24 @@
-from flask import Flask
+from flask import Flask, render_template, request
+from random import randint
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods = ["GET", "POST"])
 def index():
-    return '<h1>Bem-vindo à página principal</h1>'
+    variavel = 'Acerte o número'
 
-@app.route('/sobre')
-def sobre():
-    return 'Bem-vindo à página sobre'
+    if request.method == "GET":
+        return render_template("index.html", variavel=variavel)
+    else:
+        numero = randint(1, 9)
+        palpite = int(request.form.get("name"))
 
-@app.route('/contato')
-def contato():
-    return 'Bem-vindo à página contato'
+        if numero == palpite:
+            return f'N: {numero} <h2>Você acertou</h2>'
+        else:
+            return f'N: {numero} <h2>Você errou</h2>'
+
+@app.route('/<string:nome>')
+def error(nome):
+    variavel = f'Página "{nome}" não encontrada!'
+    return render_template("error.html", variavel=variavel)
