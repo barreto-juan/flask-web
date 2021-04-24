@@ -14,6 +14,8 @@ def index():
         a = request.form.get("questao1")
         b = request.form.get("questao2")
         c = request.form.get("questao3")
+        
+
         respostas = [a, b, c]
         cont = 0
         for i in range(3):
