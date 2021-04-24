@@ -4,16 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advinhe o número - Jinfo</title>
+    <title>Quiz Python - Jinfo</title>
 </head>
 <body>
 
     <h1>{{ variavel }}</h1>
     <hr>
 
-    <form action="{{  url_for('index') }}" method="post">
-        <label for="">Tente acertar</label> <br>
-        <input type="text" name="name">
+    <form action="{{ url_for('index') }}" method="post">
+        <fieldset>
+            <h3>Qual a sintaxe correta de Hello Wolrd em python</h3>
+            <br>
+            
+            <input type="radio" name="questao1" value="A" id="a1">
+            <label for="a1">print('Hello World')</label>
+            <br>
+
+            <input type="radio" name="questao1" value="B" id="b1">
+            <label for="b1">echo "Hello World";</label>
+            <br>
+
+            <input type="radio" name="questao1" value="C" id="c1">
+            <label for="c1">write("Hello World");</label>
+            <br>
+
+        </fieldset>
+
+        <fieldset>
+            <h3>Como receber um valor do usuário em python</h3>
+            <br>
+            
+            <input type="radio" name="questao2" value="A" id="a2">
+            <label for="a2">a = input()</label>
+            <br>
+
+            <input type="radio" name="questao2" value="B" id="b2">
+            <label for="b2">scanf("%d", a);</label>
+            <br>
+
+            <input type="radio" name="questao2" value="C" id="c2">
+            <label for="c2">read(a);</label>
+            <br>
+
+        </fieldset>
+
+        <fieldset>
+            <h3>Quem é o criador da linguagem de programação python:</h3>
+            <br>
+            
+            <input type="radio" name="questao3" value="A" id="a3">
+            <label for="a3">Linus Torvalds</label>
+            <br>
+
+            <input type="radio" name="questao3" value="B" id="b3">
+            <label for="b3">Tim Berners-Lee</label>
+            <br>
+
+            <input type="radio" name="questao3" value="C" id="c3">
+            <label for="c3">Guido van Rossum</label>
+            <br>
+
+        </fieldset>
+
+
+
         <br>
         <button>Enviar</button>
 

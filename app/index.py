@@ -5,19 +5,23 @@ app = Flask(__name__)
 
 @app.route('/', methods = ["GET", "POST"])
 def index():
-    variavel = 'Acerte o número'
+    variavel = 'Quiz Python'
 
     if request.method == "GET":
         return render_template("index.html", variavel=variavel)
     else:
-        numero = randint(1, 9)
-        palpite = int(request.form.get("name"))
+        array = ['A', 'A', 'C']
+        a = request.form.get("questao1")
+        b = request.form.get("questao2")
+        c = request.form.get("questao3")
+        respostas = [a, b, c]
+        cont = 0
+        for i in range(3):
+            if array[i] == respostas[i]:
+                cont+=1
 
-        if numero == palpite:
-            return f'N: {numero} <h2>Você acertou</h2>'
-        else:
-            return f'N: {numero} <h2>Você errou</h2>'
-
+        return f'<h2>Você acertou {cont} respostas!</h2>'
+        
 @app.route('/<string:nome>')
 def error(nome):
     variavel = f'Página "{nome}" não encontrada!'
